@@ -2,19 +2,19 @@
 
 # Mond Pricing
 
-Uma calculadora de orçamentos para transformar tempo, contexto e custos em um valor de cobrança mais consistente.
+Calculadora de orçamentos para definir quanto cobrar por cada projeto com mais consistência.
 
 [**Abrir projeto**](https://calculadora-de-orcamentos-mond.vercel.app/)
 
 </div>
 
-![Prévia do Mond Pricing](https://image.thum.io/get/width/1600/crop/900/noanimate/https://calculadora-de-orcamentos-pi.vercel.app/)
+![Prévia preenchida do Mond Pricing](./public/readme-preview.png)
 
 ## Sobre
 
-O Mond Pricing foi feito para evitar orçamento no improviso. Você informa como é a demanda, o tempo estimado, o nível de complexidade, urgência, custos e sua base de preço. A ferramenta cruza essas informações e entrega uma faixa de cobrança para a decisão final continuar sendo sua.
+O Mond Pricing ajuda a montar um valor de cobrança com base no trabalho real da demanda. Você escolhe o tipo de projeto, informa o tempo previsto, define contexto, custos e sua base de preço. A ferramenta calcula uma faixa para você decidir quanto cobrar sem depender de chute.
 
-A interface também separa a estratégia comercial em três modos: **Captação**, **Equilibrado** e **Posicionado**.
+A calculadora também permite trabalhar com três estratégias de preço: **Captação**, **Equilibrado** e **Posicionado**.
 
 ## O que entra no cálculo
 
@@ -26,15 +26,15 @@ A interface também separa a estratégia comercial em três modos: **Captação*
 - impostos, taxas, margem e desconto;
 - deslocamento por distância e tempo.
 
-O resultado apresenta **piso**, **valor recomendado** e **faixa premium**, além de entrada, saldo na entrega, horas totais, margem estimada e alertas de preço.
+O resultado mostra **piso**, **valor recomendado** e **faixa premium**, além de entrada, saldo na entrega, horas totais, margem estimada e alertas de preço.
 
 ## Dados
 
-Não existe banco de dados nesta versão. A base de preço e os orçamentos salvos usam `localStorage`, então ficam armazenados somente no navegador e dispositivo em que foram criados.
+Nesta versão, a base de preço e os orçamentos salvos usam `localStorage`. Os dados permanecem somente no navegador e no dispositivo em que foram criados.
 
 ## Stack
 
-`React 19` · `TypeScript` · `TanStack Start` · `Vite` · `Tailwind CSS` · `Vercel`
+`React 19` · `TypeScript` · `TanStack Start` · `Vite` · `Vercel`
 
 ## Desenvolvimento
 
@@ -50,8 +50,6 @@ npm run check
 npm run build
 ```
 
----
-
 <div align="center">
-  <sub>Mond Pricing · ferramenta interna para precificação de projetos</sub>
+  <sub>Mond Pricing</sub>
 </div>
