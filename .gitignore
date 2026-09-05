@@ -1,0 +1,12 @@
+node_modules
+dist
+.output
+.tanstack
+.nitro
+.vercel
+*.local
+*.log
+.DS_Store
+.idea
+.vscode/*
+!.vscode/extensions.json
