@@ -2,6 +2,7 @@ import { HeadContent, Outlet, Scripts, createRootRoute } from "@tanstack/react-r
 import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import iphoneResultCss from "../iphone-result.css?url";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -9,13 +10,11 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Mond Pricing — Calculadora de Orçamentos" },
-      {
-        name: "description",
-        content: "Calcule quanto cobrar por projetos considerando tempo, contexto, custos e margem.",
-      },
+      { name: "description", content: "Calcule quanto cobrar por projetos considerando tempo, contexto, custos e margem." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "stylesheet", href: iphoneResultCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
@@ -26,13 +25,8 @@ export const Route = createRootRoute({
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
+      <head><HeadContent /></head>
+      <body>{children}<Scripts /></body>
     </html>
   );
 }
