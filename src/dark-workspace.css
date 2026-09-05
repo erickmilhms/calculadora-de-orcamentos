@@ -1,6 +1,3 @@
-/* Final dark workspace layer.
-   Loaded after the base styles and the iPhone result skin. */
-
 :root {
   color-scheme: dark;
   --background: #09090a;
@@ -27,9 +24,7 @@ body {
   color: var(--foreground);
 }
 
-body {
-  color-scheme: dark;
-}
+body { color-scheme: dark; }
 
 .mond-tool {
   background:
@@ -133,15 +128,9 @@ body {
     #111113;
 }
 
-.editor-top {
-  background: rgba(18,18,20,.94);
-}
-
+.editor-top { background: rgba(18,18,20,.94); }
 .editor-kicker { color: #ff4b42; }
-
-.tool-tabs {
-  background: #0d0d0f;
-}
+.tool-tabs { background: #0d0d0f; }
 
 .tool-tabs button {
   border-right-color: #29292c;
@@ -153,13 +142,8 @@ body {
   color: #f5f3ef;
 }
 
-.tool-tabs button.is-active::after {
-  background: #ef3028;
-}
-
-.editor-body {
-  background: rgba(15,15,17,.62);
-}
+.tool-tabs button.is-active::after { background: #ef3028; }
+.editor-body { background: rgba(15,15,17,.62); }
 
 .project-name-field > span,
 .control-heading strong,
@@ -222,10 +206,7 @@ body {
   color: #85828a;
 }
 
-.compact-input input {
-  color: #f5f3ee;
-}
-
+.compact-input input { color: #f5f3ee; }
 .toggle-ui { background: #37373b; }
 
 .side-sheet {
@@ -252,6 +233,7 @@ body {
 
 .history-load { color: #f0ede7; }
 .history-load small { color: #89868f; }
+
 .history-delete {
   border-left-color: #2d2d31;
   background: #111113;
@@ -262,9 +244,9 @@ body {
   border-color: #37373b;
   color: #918e88;
 }
+
 .empty-state strong { color: #efede8; }
 
-/* Keep the iPhone fully inside the desktop viewport. */
 .workspace {
   grid-template-columns: minmax(210px, 240px) minmax(500px, 1fr) minmax(340px, 390px);
   gap: 16px;
@@ -297,12 +279,11 @@ body {
 .result-topline::before { top: -41px; font-size: 12px; }
 .result-topline::after { top: -40px; font-size: 7px; }
 .status-pill { min-height: 27px; padding: 0 8px; }
-
 .result-price { padding: 18px 0 16px; }
 .result-price strong { font-size: 53px; }
 .result-price span { margin-top: 8px; font-size: 9px; }
-
 .price-bounds { gap: 7px; }
+
 .price-bounds div,
 .price-bounds div:first-child,
 .price-bounds div:last-child {
@@ -310,11 +291,12 @@ body {
   padding: 9px;
   border-radius: 15px;
 }
+
 .price-bounds span { font-size: 7px; }
 .price-bounds strong { margin-top: 5px; font-size: 11px; }
-
 .result-metrics { margin-top: 12px; border-radius: 16px; }
 .result-metrics div { min-height: 72px; padding: 13px 10px 10px 43px; }
+
 .result-metrics div::before {
   left: 11px;
   top: 14px;
@@ -322,9 +304,9 @@ body {
   height: 24px;
   font-size: 11px;
 }
+
 .result-metrics span { font-size: 8px; }
 .result-metrics strong { margin-top: 5px; font-size: 13px; }
-
 .payment-row { margin-top: 9px; border-radius: 15px; }
 .payment-row div { min-height: 58px; padding: 11px 8px 9px 39px; }
 .payment-row div::before { left: 12px; top: 16px; font-size: 17px; }
@@ -354,7 +336,6 @@ body {
   font-size: 10px;
 }
 
-/* Home indicator is anchored to the phone, not to the actions. */
 .result-actions::after {
   left: 50%;
   bottom: 12px;
@@ -414,7 +395,6 @@ body {
 
   .result-topline::before { top: -39px; }
   .result-topline::after { top: -38px; }
-
   .result-price strong { font-size: clamp(45px, 12.5vw, 52px); }
 
   .mobile-dock {
@@ -427,7 +407,10 @@ body {
     background: #111113;
   }
 
-  .result-actions::after { bottom: 11px; width: 98px; }
+  .result-actions::after {
+    bottom: 11px;
+    width: 98px;
+  }
 }
 
 @media (max-width: 370px) {
