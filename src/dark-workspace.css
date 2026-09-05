@@ -1,0 +1,435 @@
+/* Final dark workspace layer.
+   Loaded after the base styles and the iPhone result skin. */
+
+:root {
+  color-scheme: dark;
+  --background: #09090a;
+  --foreground: #f4f2ee;
+  --primary: #ef3028;
+  --primary-foreground: #ffffff;
+  --muted: #18181a;
+  --muted-foreground: #918e88;
+  --border: #2a2a2d;
+  --paper: #111113;
+  --paper-strong: #171719;
+  --ink: #f6f4ef;
+  --ink-soft: #aaa7a0;
+  --line: #29292c;
+  --mond-red: #ef3028;
+  --mond-red-dark: #b9231d;
+  --success: #72df8e;
+  --danger: #ff746a;
+}
+
+html,
+body {
+  background: #09090a;
+  color: var(--foreground);
+}
+
+body {
+  color-scheme: dark;
+}
+
+.mond-tool {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    radial-gradient(circle at 76% 12%, rgba(239, 48, 40, 0.045), transparent 28%),
+    #09090a;
+  background-size: 30px 30px, 30px 30px, auto;
+}
+
+.tool-header {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  background: rgba(10, 10, 11, 0.9);
+  box-shadow: 0 1px 0 rgba(255,255,255,.015);
+}
+
+.brand-glyph {
+  background: #f4f2ee;
+  color: #0c0c0d;
+}
+
+.brand-name { color: #f4f2ee; }
+.brand-divider { color: #55545a; }
+.brand-product { color: #8f8c86; }
+
+.header-chip {
+  border-color: #2b2b2e;
+  background: #141416;
+  color: #e9e7e2;
+}
+
+.header-chip b {
+  background: #ef3028;
+  color: #fff;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .header-chip:hover {
+    border-color: #444449;
+    background: #1b1b1e;
+  }
+}
+
+.profile-panel,
+.editor-panel {
+  border-color: #29292c;
+  background: rgba(17, 17, 19, 0.97);
+  color: #f4f2ee;
+  box-shadow: 0 16px 46px rgba(0,0,0,.18);
+}
+
+.profile-panel {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.018), transparent 42%),
+    #111113;
+}
+
+.panel-label,
+.profile-rate > span,
+.profile-rate > small,
+.profile-list dt,
+.profile-insights > span,
+.profile-insights small,
+.editor-kicker + h1 + *,
+.control-heading > span,
+.compact-field-copy small,
+.view-summary p,
+.travel-toggle-copy small {
+  color: #8e8b85;
+}
+
+.panel-label button,
+.icon-button {
+  border-color: #313136;
+  background: #19191c;
+  color: #d8d5cf;
+}
+
+.profile-rate,
+.profile-list div,
+.editor-top,
+.tool-tabs,
+.health-line {
+  border-color: #29292c;
+}
+
+.profile-insights div {
+  border-color: #29292c;
+  background: #171719;
+}
+
+.profile-edit {
+  border-color: #ef3028;
+  background: #ef3028;
+  color: #fff;
+}
+
+.editor-panel {
+  background:
+    radial-gradient(circle at 92% -12%, rgba(239,48,40,.045), transparent 26%),
+    #111113;
+}
+
+.editor-top {
+  background: rgba(18,18,20,.94);
+}
+
+.editor-kicker { color: #ff4b42; }
+
+.tool-tabs {
+  background: #0d0d0f;
+}
+
+.tool-tabs button {
+  border-right-color: #29292c;
+  color: #77757a;
+}
+
+.tool-tabs button.is-active {
+  background: #151517;
+  color: #f5f3ef;
+}
+
+.tool-tabs button.is-active::after {
+  background: #ef3028;
+}
+
+.editor-body {
+  background: rgba(15,15,17,.62);
+}
+
+.project-name-field > span,
+.control-heading strong,
+.compact-field-copy strong,
+.travel-toggle-copy strong {
+  color: #ece9e3;
+}
+
+.project-name-field input {
+  border-color: #303034;
+  background: #171719;
+  color: #f6f4ef;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.018);
+}
+
+.project-name-field input::placeholder { color: #656369; }
+
+.choice-group button {
+  border-color: #2c2c30;
+  background: #161618;
+  color: #d5d2cc;
+}
+
+.choice-group button small { color: #77747e; }
+
+.choice-group button.is-selected {
+  border-color: #ef3028;
+  background:
+    linear-gradient(180deg, rgba(239,48,40,.12), rgba(239,48,40,.055)),
+    #191416;
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(239,48,40,.08);
+}
+
+.choice-group button.is-selected small { color: #ff8c86; }
+
+@media (hover: hover) and (pointer: fine) {
+  .choice-group button:not(.is-selected):hover {
+    border-color: #47474c;
+    background: #1b1b1e;
+  }
+}
+
+.view-summary {
+  border-color: #2b2b2f;
+  background:
+    linear-gradient(90deg, rgba(239, 48, 40, 0.09), transparent 42%),
+    #161618;
+}
+
+.compact-field,
+.travel-toggle {
+  border-color: #2b2b2f;
+  background: #151517;
+}
+
+.compact-input {
+  border-color: #37373b;
+  background: #0d0d0f;
+  color: #85828a;
+}
+
+.compact-input input {
+  color: #f5f3ee;
+}
+
+.toggle-ui { background: #37373b; }
+
+.side-sheet {
+  border-left-color: #2a2a2d;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(239,48,40,.055), transparent 28%),
+    #111113;
+  color: #f4f2ee;
+  box-shadow: -30px 0 80px rgba(0,0,0,.42);
+}
+
+.sheet-intro { color: #96938d; }
+.sheet-fields .compact-field { background: #161618; }
+
+.profile-preview {
+  border-color: #343439;
+  background: #09090a;
+}
+
+.history-item {
+  border-color: #2d2d31;
+  background: #161618;
+}
+
+.history-load { color: #f0ede7; }
+.history-load small { color: #89868f; }
+.history-delete {
+  border-left-color: #2d2d31;
+  background: #111113;
+  color: #77757b;
+}
+
+.empty-state {
+  border-color: #37373b;
+  color: #918e88;
+}
+.empty-state strong { color: #efede8; }
+
+/* Keep the iPhone fully inside the desktop viewport. */
+.workspace {
+  grid-template-columns: minmax(210px, 240px) minmax(500px, 1fr) minmax(340px, 390px);
+  gap: 16px;
+}
+
+.result-panel {
+  width: min(100%, 370px);
+  aspect-ratio: 440 / 956;
+  top: 76px;
+  padding: 67px 20px 28px;
+  border-width: 7px;
+  border-radius: 51px;
+  box-shadow:
+    0 0 0 1px #727781,
+    0 0 0 3px #202229,
+    0 0 0 5px #5e636c,
+    0 0 0 7px #101116,
+    0 22px 52px rgba(0,0,0,.4),
+    inset 0 0 0 1px rgba(255,255,255,.07),
+    inset 0 1px 0 rgba(255,255,255,.15);
+}
+
+.result-panel::after {
+  top: 13px;
+  width: 112px;
+  height: 32px;
+}
+
+.result-topline { min-height: 27px; font-size: 7px; }
+.result-topline::before { top: -41px; font-size: 12px; }
+.result-topline::after { top: -40px; font-size: 7px; }
+.status-pill { min-height: 27px; padding: 0 8px; }
+
+.result-price { padding: 18px 0 16px; }
+.result-price strong { font-size: 53px; }
+.result-price span { margin-top: 8px; font-size: 9px; }
+
+.price-bounds { gap: 7px; }
+.price-bounds div,
+.price-bounds div:first-child,
+.price-bounds div:last-child {
+  min-height: 76px;
+  padding: 9px;
+  border-radius: 15px;
+}
+.price-bounds span { font-size: 7px; }
+.price-bounds strong { margin-top: 5px; font-size: 11px; }
+
+.result-metrics { margin-top: 12px; border-radius: 16px; }
+.result-metrics div { min-height: 72px; padding: 13px 10px 10px 43px; }
+.result-metrics div::before {
+  left: 11px;
+  top: 14px;
+  width: 24px;
+  height: 24px;
+  font-size: 11px;
+}
+.result-metrics span { font-size: 8px; }
+.result-metrics strong { margin-top: 5px; font-size: 13px; }
+
+.payment-row { margin-top: 9px; border-radius: 15px; }
+.payment-row div { min-height: 58px; padding: 11px 8px 9px 39px; }
+.payment-row div::before { left: 12px; top: 16px; font-size: 17px; }
+.payment-row span { font-size: 8px; }
+.payment-row strong { margin-top: 4px; font-size: 12px; }
+
+.warning-box,
+.healthy-box {
+  min-height: 44px;
+  margin-top: 9px;
+  padding: 9px 11px;
+  border-radius: 13px;
+  font-size: 8px;
+}
+
+.result-actions {
+  position: static;
+  grid-template-columns: 1fr 46px 46px;
+  gap: 7px;
+  margin-top: 9px;
+  padding-bottom: 0;
+}
+
+.result-actions button {
+  min-height: 46px;
+  border-radius: 12px;
+  font-size: 10px;
+}
+
+/* Home indicator is anchored to the phone, not to the actions. */
+.result-actions::after {
+  left: 50%;
+  bottom: 12px;
+  width: 104px;
+  height: 4px;
+  z-index: 4;
+}
+
+@media (max-width: 1180px) {
+  .workspace { grid-template-columns: minmax(0, 1fr) minmax(340px, 380px); }
+  .result-panel { width: min(100%, 360px); }
+}
+
+@media (max-width: 820px) {
+  .workspace {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 760px;
+  }
+
+  .result-panel {
+    position: static;
+    order: -1;
+    width: min(100%, 350px);
+    margin: 8px auto 10px;
+  }
+
+  .editor-panel { width: 100%; }
+}
+
+@media (max-width: 560px) {
+  html,
+  body { background: #09090a; }
+
+  .mond-tool {
+    background:
+      linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+      #09090a;
+    background-size: 100% 30px;
+  }
+
+  .tool-header { background: rgba(10,10,11,.94); }
+
+  .result-panel {
+    width: min(calc(100% - 18px), 350px);
+    padding: 64px 18px 26px;
+    border-width: 6px;
+    border-radius: 46px;
+  }
+
+  .result-panel::after {
+    top: 12px;
+    width: 104px;
+    height: 30px;
+  }
+
+  .result-topline::before { top: -39px; }
+  .result-topline::after { top: -38px; }
+
+  .result-price strong { font-size: clamp(45px, 12.5vw, 52px); }
+
+  .mobile-dock {
+    border-color: #2c2c30;
+    background: rgba(14,14,16,.95);
+  }
+
+  .side-sheet {
+    border-top-color: #2b2b2e;
+    background: #111113;
+  }
+
+  .result-actions::after { bottom: 11px; width: 98px; }
+}
+
+@media (max-width: 370px) {
+  .result-panel { width: min(calc(100% - 12px), 330px); }
+}
