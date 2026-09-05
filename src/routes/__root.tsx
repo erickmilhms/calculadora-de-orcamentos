@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import appCss from "../styles.css?url";
 import iphoneResultCss from "../iphone-result.css?url";
 import darkWorkspaceCss from "../dark-workspace.css?url";
+import iphoneStatusIconsCss from "../iphone-status-icons.css?url";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -17,6 +18,7 @@ export const Route = createRootRoute({
       { rel: "stylesheet", href: appCss },
       { rel: "stylesheet", href: iphoneResultCss },
       { rel: "stylesheet", href: darkWorkspaceCss },
+      { rel: "stylesheet", href: iphoneStatusIconsCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
