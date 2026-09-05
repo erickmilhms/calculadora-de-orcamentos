@@ -3,6 +3,7 @@ export type WorkModel = "direct" | "freelance" | "whitelabel" | "recurring";
 export type Level = "low" | "medium" | "high" | "extreme";
 export type ScopeLevel = "clear" | "partial" | "open";
 export type Urgency = "normal" | "fast" | "rush" | "critical";
+export type PricingMode = "starter" | "balanced" | "positioned";
 
 export interface QuoteInput {
   projectName: string;
@@ -32,6 +33,9 @@ export interface QuoteInput {
 
 export interface QuoteResult {
   baseHourlyRate: number;
+  pricingHourlyRate: number;
+  sustainableFloorPrice: number;
+  pricingMode: PricingMode;
   totalHours: number;
   revisionHours: number;
   laborCost: number;
@@ -114,12 +118,21 @@ const urgencyFactors: Record<Urgency, number> = {
   critical: 1.48,
 };
 
+// Cada modo muda a hora usada comercialmente, sem apagar a hora sustentável.
+// Captação é propositalmente agressivo para a fase atual: com os valores padrão,
+// uma landing page fica perto de R$ 1,1–1,2 mil em vez de ~R$ 2,1 mil.
+const pricingModeFactors: Record<PricingMode, number> = {
+  starter: 0.56,
+  balanced: 1,
+  positioned: 1.22,
+};
+
 const clean = (value: number, fallback = 0) =>
   Number.isFinite(value) ? Math.max(0, value) : fallback;
 
 const roundUp = (value: number, step = 50) => Math.ceil(value / step) * step;
 
-export function calculateQuote(raw: QuoteInput): QuoteResult {
+export function calculateQuote(raw: QuoteInput, pricingMode: PricingMode = "starter"): QuoteResult {
   const input = {
     ...raw,
     executionHours: clean(raw.executionHours),
@@ -141,10 +154,11 @@ export function calculateQuote(raw: QuoteInput): QuoteResult {
   };
 
   const baseHourlyRate = (input.monthlyTarget + input.monthlyCosts) / input.billableHours;
+  const pricingHourlyRate = baseHourlyRate * pricingModeFactors[pricingMode];
   const revisionHours = Math.max(0, input.revisions - 1) * 0.75;
   const workingHours = input.executionHours + input.meetingHours + input.supportHours + revisionHours;
   const totalHours = workingHours + (input.travelEnabled ? input.travelHours : 0);
-  const laborCost = workingHours * baseHourlyRate;
+  const laborCost = workingHours * pricingHourlyRate;
 
   const commercialMultiplier =
     projectFactors[input.projectType] *
@@ -155,7 +169,7 @@ export function calculateQuote(raw: QuoteInput): QuoteResult {
 
   const adjustedLabor = laborCost * commercialMultiplier;
   const travelCost = input.travelEnabled
-    ? input.kmPerTrip * input.trips * input.costPerKm + input.travelHours * baseHourlyRate
+    ? input.kmPerTrip * input.trips * input.costPerKm + input.travelHours * pricingHourlyRate
     : 0;
   const directCosts = input.projectExpenses + travelCost;
   const adjustedCost = adjustedLabor + directCosts;
@@ -169,6 +183,15 @@ export function calculateQuote(raw: QuoteInput): QuoteResult {
   const recommendedPrice = roundUp(adjustedCost / recommendedDenominator);
   const premiumPrice = roundUp(recommendedPrice * 1.18);
 
+  // Referência sustentável: usa a hora-base cheia e serve para mostrar o quanto
+  // o modo Captação está conscientemente abrindo mão em troca de facilidade de fechamento.
+  const sustainableLabor = workingHours * baseHourlyRate * commercialMultiplier;
+  const sustainableTravel = input.travelEnabled
+    ? input.kmPerTrip * input.trips * input.costPerKm + input.travelHours * baseHourlyRate
+    : 0;
+  const sustainableAdjustedCost = sustainableLabor + input.projectExpenses + sustainableTravel;
+  const sustainableFloorPrice = roundUp(sustainableAdjustedCost / floorDenominator);
+
   const maxSafeDiscount = Math.max(0, Math.min(60, (1 - floorPrice / recommendedPrice) * 100));
   const finalPrice = roundUp(recommendedPrice * (1 - input.discount / 100));
   const entryPrice = roundUp(finalPrice * 0.5, 10);
@@ -180,8 +203,17 @@ export function calculateQuote(raw: QuoteInput): QuoteResult {
   const effectiveHourlyRate = totalHours > 0 ? (finalPrice - directCosts) / totalHours : 0;
 
   const warnings: string[] = [];
+  if (pricingMode === "starter" && finalPrice < sustainableFloorPrice) {
+    warnings.push(
+      `Modo Captação: o valor está abaixo do piso sustentável de ${new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+        maximumFractionDigits: 0,
+      }).format(sustainableFloorPrice)}. Use isso como estratégia temporária, não como referência definitiva.`,
+    );
+  }
   if (input.discount > maxSafeDiscount + 0.2) {
-    warnings.push("O desconto passou do limite seguro e invade seu preço mínimo.");
+    warnings.push("O desconto passou do limite seguro deste modo e invade seu preço mínimo.");
   }
   if (input.billableHours > 140) {
     warnings.push("Muitas horas faturáveis no mês podem deixar sua hora artificialmente barata.");
@@ -201,6 +233,9 @@ export function calculateQuote(raw: QuoteInput): QuoteResult {
 
   return {
     baseHourlyRate,
+    pricingHourlyRate,
+    sustainableFloorPrice,
+    pricingMode,
     totalHours,
     revisionHours,
     laborCost,
@@ -237,4 +272,9 @@ export const labels = {
     whitelabel: "White-label",
     recurring: "Cliente recorrente",
   } satisfies Record<WorkModel, string>,
+  pricingMode: {
+    starter: "Captação",
+    balanced: "Equilibrado",
+    positioned: "Posicionado",
+  } satisfies Record<PricingMode, string>,
 };
