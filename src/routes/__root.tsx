@@ -76,27 +76,28 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Mond Pricing — Calculadora de Orçamentos" },
+      { title: "Mond Pricing Calculadora de Orçamentos" },
       {
         name: "description",
         content:
-          "Calcule quanto cobrar por projetos considerando horas, complexidade, urgência, deslocamento, custos, taxas e margem.",
+          "Calcule quanto cobrar por cada projeto com base em horas, complexidade, custos, urgência e margem.",
       },
       { name: "author", content: "Mond" },
-      { property: "og:title", content: "Mond Pricing — Calculadora de Orçamentos" },
+      { property: "og:title", content: "Mond Pricing Calculadora de Orçamentos" },
       {
         property: "og:description",
-        content: "Orçamentos baseados em custo, contexto e margem — sem tirar valores da cabeça.",
+        content:
+          "Calcule quanto cobrar por cada projeto com base em horas, complexidade, custos, urgência e margem.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:card", content: "summary" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "stylesheet", href: iphoneResultCss },
       { rel: "stylesheet", href: darkWorkspaceCss },
       { rel: "stylesheet", href: phoneRedesignCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
     ],
   }),
   shellComponent: RootShell,
