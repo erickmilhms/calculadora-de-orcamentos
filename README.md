@@ -4,7 +4,7 @@
 
 Uma calculadora de orçamentos para transformar tempo, contexto e custos em um valor de cobrança mais consistente.
 
-[**Abrir projeto**](calculadora-de-orcamentos-mond.vercel.app)
+[**Abrir projeto**](https://calculadora-de-orcamentos-mond.vercel.app/)
 
 </div>
 
